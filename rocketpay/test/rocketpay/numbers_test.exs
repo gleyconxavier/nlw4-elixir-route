@@ -11,9 +11,7 @@ defmodule Rocketpay.NumbersTest do
 
       assert response == expected_response
     end
-  end
 
-  describe "sum_from_file/1" do
     test "when there is no file with the given name, returns an error" do
       response = Numbers.sum_from_file("banana")
 
