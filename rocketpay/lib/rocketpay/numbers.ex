@@ -2,10 +2,10 @@ defmodule Rocketpay.Numbers do
   def sum_from_file(filename) do
     "#{filename}.csv"
     |> File.read()
-    |> handle_file(file)
+    |> handle_file()
   end
 
-  defp handle_file({:ok, result}), do
+  defp handle_file({:ok, result}) do
     # result = String.split(result, ",")
     # result = Enum.map(result, fn number -> String.to_interger(number) end)
     # result = Enum.sum(result)
@@ -16,11 +16,11 @@ defmodule Rocketpay.Numbers do
     result =
       result
       |> String.split(",")
-      |> Stream.map(fn number -> String.to_interger(number) end)
+      |> Stream.map(fn number -> String.to_integer(number) end)
       |> Enum.sum()
 
     {:ok, %{result: result}}
   end
 
-  defp handle_file({:error, reason}), do: {:error, %{message: "Invalid file!"}}
+  defp handle_file({:error, _reason}), do: {:error, %{message: "Invalid file!"}}
 end
