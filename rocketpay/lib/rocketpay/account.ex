@@ -3,7 +3,6 @@ defmodule Rocketpay.Account do
   import Ecto.Changeset
 
   alias Rocketpay.User
-  alias Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
